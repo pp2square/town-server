@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Town Meeting Vote System - List</title>
+</head>
+<body ng-app="townMettingList">
+    <div id="town-full">
+        <p>Town Meeting Admin List Page</p>
+        <header id="main-headers">
+        <p>Town Meeting Admin List Header Page</p>
+        </header>
+        <section id="town-main-list">
+            <div  ng-controller="ItemListCtrl" ng-init="loadVotes()">
+                <div>
+                    <p>Vote Items List</p>
+                    <ul>
+                        <li ng-repeat="voteItem in voteItems" ng-click="showDetail($index)"><a ng-href="#{{$index}}"> {{voteItem.voteSubject}} </a></li>
+                    </ul>
+                </div>
+                <div>
+                Subject : {{ itemSubject }} <br />
+                items :<br />
+                    <ul>
+                        <li ng-repeat="itemDetail in itemDetails"><a ng-href=""> {{itemDetail.id}} : {{itemDetail.title}}</a></li>
+                    </ul>
+                <br />
+                <button ng-click="startVote()">Start Vote</button><button ng-click="endVote()">End Vote</button><br />
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script src="../js/list.js"></script>
+</body>
+</html>
